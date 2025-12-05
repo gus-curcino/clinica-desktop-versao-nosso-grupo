@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 
 /**
- *
+ *igor
  * @author evertonhf
  */
 public class BaseScreen extends JFrame {
