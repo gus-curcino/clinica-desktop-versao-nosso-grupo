@@ -155,7 +155,7 @@ public class EspecialidadeDao extends BaseDao implements Persistente<Especialida
         } finally {
             fecharRecursos(conn, stmt, rs);
         }
-// teste1
+
         return lista;
     }
 }
