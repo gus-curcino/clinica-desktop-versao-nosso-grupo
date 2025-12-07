@@ -4,6 +4,14 @@
  */
 package br.edu.imepac.clinica.screens;
 
+import java.awt.Component;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JOptionPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 /**
  *
  * @author pichau
@@ -17,6 +25,12 @@ public class TelaProntuario extends javax.swing.JFrame {
      */
     public TelaProntuario() {
         initComponents();
+        configurarTabela(jTable1);
+        configurarTabela(jTable2);
+        configurarTabela(jTable3);
+        configurarTabela(jTable4);
+        configurarTabela(jTable5);
+        configurarTabela(jTable6);
     }
 
     /**
@@ -78,6 +92,12 @@ public class TelaProntuario extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
+        jTabbedPane2.addContainerListener(new java.awt.event.ContainerAdapter() {
+            public void componentAdded(java.awt.event.ContainerEvent evt) {
+                jTabbedPane2ComponentAdded(evt);
+            }
+        });
+
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -96,7 +116,9 @@ public class TelaProntuario extends javax.swing.JFrame {
                 return types [columnIndex];
             }
         });
+        jTable1.setColumnSelectionAllowed(true);
         jScrollPane1.setViewportView(jTable1);
+        jTable1.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         jTabbedPane2.addTab("Histórico", jScrollPane1);
 
@@ -200,6 +222,10 @@ public class TelaProntuario extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jTabbedPane2ComponentAdded(java.awt.event.ContainerEvent evt) {//GEN-FIRST:event_jTabbedPane2ComponentAdded
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTabbedPane2ComponentAdded
+
     /**
      * @param args the command line arguments
      */
@@ -246,4 +272,100 @@ public class TelaProntuario extends javax.swing.JFrame {
     private javax.swing.JTable jTable5;
     private javax.swing.JTable jTable6;
     // End of variables declaration//GEN-END:variables
+private void configurarTabela(JTable tabela) {
+    // Definindo as colunas
+    Object[] colunas = {"", "Paciente", "Ação"}; // Deixei o título do checkbox vazio para economizar espaço
+    
+    // Criando o Modelo
+    DefaultTableModel model = new DefaultTableModel(colunas, 0) {
+        @Override
+        public Class<?> getColumnClass(int columnIndex) {
+            return switch (columnIndex) {
+                case 0 -> Boolean.class;
+                case 1 -> String.class;
+                case 2 -> JButton.class;
+                default -> String.class;
+            };
+        }
+        @Override
+        public boolean isCellEditable(int row, int column) {
+            return true; 
+        }
+    };
+
+    // Adicionando dados de teste (opcional, pode remover depois)
+    model.addRow(new Object[]{false, "Nome Completo do Paciente...", "Ver Detalhes"});
+
+    // Aplica o modelo na tabela que foi passada por parâmetro
+    tabela.setModel(model);
+
+    // Configura os Botões
+    tabela.getColumn("Ação").setCellRenderer(new ButtonRenderer());
+    tabela.getColumn("Ação").setCellEditor(new ButtonEditor(new JCheckBox()));
+
+    // --- AQUI ESTÁ A MÁGICA DA LARGURA ---
+    
+    // Coluna 0 (Checkbox): Bem estreita
+    tabela.getColumnModel().getColumn(0).setPreferredWidth(30);
+    tabela.getColumnModel().getColumn(0).setMaxWidth(30);
+    tabela.getColumnModel().getColumn(0).setMinWidth(30);
+
+    // Coluna 2 (Botão): Tamanho fixo para caber o texto
+    tabela.getColumnModel().getColumn(2).setPreferredWidth(110);
+    tabela.getColumnModel().getColumn(2).setMaxWidth(110);
+    tabela.getColumnModel().getColumn(2).setMinWidth(110);
+    
+    // A coluna 1 (Descrição) vai ocupar automaticamente o restante do espaço!
+    tabela.setRowHeight(25); // Dica extra: aumenta um pouco a altura da linha para o botão não ficar espremido
+}
+
+// --- CLASSES AUXILIARES PARA O BOTÃO (Pode colar no final do arquivo, dentro da classe principal) ---
+
+// 1. O que faz o botão APARECER na tela
+class ButtonRenderer extends JButton implements TableCellRenderer {
+    public ButtonRenderer() {
+        setOpaque(true);
+    }
+    @Override
+    public Component getTableCellRendererComponent(JTable table, Object value,
+            boolean isSelected, boolean hasFocus, int row, int column) {
+        setText((value == null) ? "Botão" : value.toString());
+        return this;
+    }
+}
+
+// 2. O que faz o botão FUNCIONAR quando clica
+class ButtonEditor extends DefaultCellEditor {
+    protected JButton button;
+    private String label;
+    private boolean isPushed;
+
+    public ButtonEditor(JCheckBox checkBox) {
+        super(checkBox);
+        button = new JButton();
+        button.setOpaque(true);
+        button.addActionListener(e -> fireEditingStopped());
+    }
+
+    @Override
+    public Component getTableCellEditorComponent(JTable table, Object value,
+            boolean isSelected, int row, int column) {
+        label = (value == null) ? "Botão" : value.toString();
+        button.setText(label);
+        isPushed = true;
+        return button;
+    }
+
+    @Override
+    public Object getCellEditorValue() {
+        if (isPushed) {
+            // --- AQUI É ONDE VOCÊ COLOCA A AÇÃO DO BOTÃO ---
+            System.out.println("Botão clicado na linha!");
+            JOptionPane.showMessageDialog(button, "Você clicou na linha: " + label);
+            // -----------------------------------------------
+        }
+        isPushed = false;
+        return label;
+    }
+}
 }
