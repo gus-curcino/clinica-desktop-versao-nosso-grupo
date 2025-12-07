@@ -4,6 +4,8 @@
  */
 package br.edu.imepac.clinica.screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lorenna
@@ -64,6 +66,11 @@ public class CadastrarPaciente extends javax.swing.JFrame {
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 15)); // NOI18N
         jButton1.setText("Cadastrar");
         jButton1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -126,6 +133,44 @@ public class CadastrarPaciente extends javax.swing.JFrame {
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField3ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:                                        
+    String nome = jTextField4.getText();
+    String cpf = jTextField3.getText();
+    String convenio = jComboBox1.getSelectedItem().toString();
+
+    // Validação: Nome
+    if (nome == null || nome.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "O nome do paciente é obrigatório.");
+        return;
+    }
+
+    // Validação: CPF
+    if (cpf == null || cpf.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "O CPF é obrigatório.");
+        return;
+    }
+
+    // Validação do convênio
+    if (convenio.equals("Convênio:")) {
+        JOptionPane.showMessageDialog(null, "Selecione um tipo de convênio válido.");
+        return;
+    }
+
+    // Exibir dados só para teste
+    JOptionPane.showMessageDialog(
+        null,
+        "Nome: " + nome +
+        "\nCPF: " + cpf +
+        "\nConvênio: " + convenio
+    );
+
+    // Limpar campos
+    jTextField4.setText("");
+    jTextField3.setText("");
+    jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
