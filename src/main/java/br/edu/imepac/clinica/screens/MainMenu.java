@@ -49,7 +49,7 @@ public class MainMenu extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 255, 255));
         jPanel1.setForeground(new java.awt.Color(153, 255, 255));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Ana\\Downloads\\medico.png")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/medico.png"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         jTextField1.addActionListener(new java.awt.event.ActionListener() {
