@@ -274,7 +274,7 @@ public class TelaProntuario extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 private void configurarTabela(JTable tabela) {
     // Definindo as colunas
-    Object[] colunas = {"", "Paciente", "Ação"}; // Deixei o título do checkbox vazio para economizar espaço
+    Object[] colunas = {"", "Pacientes", "Ação"}; // Deixei o título do checkbox vazio para economizar espaço
     
     // Criando o Modelo
     DefaultTableModel model = new DefaultTableModel(colunas, 0) {
