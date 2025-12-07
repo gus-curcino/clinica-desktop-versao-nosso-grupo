@@ -88,10 +88,22 @@ public class TelaCadastros extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        // Abrir tela de cadastro de paciente
+    CadastrarPaciente telaPaciente = new CadastrarPaciente();
+    telaPaciente.setVisible(true);
+
+    // Fechar a tela atual (opcional)
+    this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
+         // Abrir tela de cadastro de médico
+    CadastrarMedico telaMedico = new CadastrarMedico();
+    telaMedico.setVisible(true);
+
+    // Fechar a tela atual (opcional)
+    this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
