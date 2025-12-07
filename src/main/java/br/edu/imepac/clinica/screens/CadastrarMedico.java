@@ -4,6 +4,8 @@
  */
 package br.edu.imepac.clinica.screens;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lorenna
@@ -147,7 +149,52 @@ public class CadastrarMedico extends javax.swing.JFrame {
     }//GEN-LAST:event_jComboBox2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                                        
+    // Capturar os dados dos campos
+    String nome = jTextField1.getText();
+    String crm = (String) jTextField6.getText();
+    String cpf = (String) jTextField4.getText();
+    Object especialidadeObj = jComboBox2.getSelectedItem();
+
+    // Verificar se o combo realmente tem algo selecionado
+String especialidade = jComboBox2.getSelectedItem().toString();
+
+if (especialidade.equals("Especialidade:")) {
+    JOptionPane.showMessageDialog(null, "Selecione uma especialidade válida.");
+    return;
+}
+
+    // Validações básicas
+    if (nome == null || nome.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "O nome do médico é obrigatório.");
+        return;
+    }
+    if (crm == null || crm.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "O CRM é obrigatório.");
+        return;
+    }
+    if (cpf == null || cpf.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "O CPF é obrigatório.");
+        return;
+    }
+    if (especialidade.trim().isEmpty()) {
+        JOptionPane.showMessageDialog(null, "Selecione uma especialidade.");
+        return;
+    }
+
+    // Mostrar os dados capturados (teste)
+    JOptionPane.showMessageDialog(null,
+        "Nome: " + nome +
+        "\nCRM: " + crm +
+        "\nCPF: " + cpf +
+        "\nEspecialidade: " + especialidade
+    );
+
+    // Limpar campos depois do cadastro
+    jTextField1.setText("");
+    jTextField6.setText("");
+    jTextField4.setText("");
+    jComboBox2.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
