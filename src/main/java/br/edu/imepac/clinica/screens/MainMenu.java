@@ -5,6 +5,7 @@
 package br.edu.imepac.clinica.screens;
 
 import br.edu.imepac.clinica.screens.especialidades.EspecialidadeAddForm;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -19,6 +20,9 @@ public class MainMenu extends javax.swing.JFrame {
      */
     public MainMenu() {
         initComponents();
+        ButtonGroup grupoCargo = new ButtonGroup() ;
+        grupoCargo.add(jCheckBox1);
+        grupoCargo.add(jCheckBox2);
     }
 
     /**
@@ -86,6 +90,11 @@ public class MainMenu extends javax.swing.JFrame {
         });
 
         jCheckBox2.setText("MÉDICO");
+        jCheckBox2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBox2ActionPerformed(evt);
+            }
+        });
 
         jPasswordField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,12 +193,40 @@ public class MainMenu extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        // TODO add your handling code here:                                  
+    String id = jTextField1.getText();
+    String senha = new String(jPasswordField1.getPassword());
+
+    if (id.isEmpty() || senha.isEmpty()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Por favor, preencha ID e senha!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    if (jCheckBox1.isSelected() && jCheckBox2.isSelected()) {
+        javax.swing.JOptionPane.showMessageDialog(this, "Selecione apenas SECRETÁRIA ou MÉDICO!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+        return;
+    }
+
+    if (jCheckBox1.isSelected()) {
+        // Aqui você valida o login da SECRETÁRIA
+        // Exemplo: abrir tela da secretária
+        javax.swing.JOptionPane.showMessageDialog(this, "Login como SECRETÁRIA autorizado!");
+        // new TelaSecretaria().setVisible(true);
+        // this.dispose();
+    } else if (jCheckBox2.isSelected()) {
+        // Aqui você valida o login do MÉDICO
+        javax.swing.JOptionPane.showMessageDialog(this, "Login como MÉDICO autorizado!");
+        // new TelaMedico().setVisible(true);
+        // this.dispose();
+    } else {
+        javax.swing.JOptionPane.showMessageDialog(this, "Selecione SECRETÁRIA ou MÉDICO!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
+    }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
@@ -199,6 +236,10 @@ public class MainMenu extends javax.swing.JFrame {
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jPasswordField1ActionPerformed
+
+    private void jCheckBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jCheckBox2ActionPerformed
 
     /**
      * @param args the command line arguments

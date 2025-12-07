@@ -224,6 +224,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="M&#xc9;DICO"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBox2ActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JPasswordField" name="jPasswordField1">
               <Events>
