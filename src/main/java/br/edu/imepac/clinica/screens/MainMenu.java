@@ -4,6 +4,7 @@
  */
 package br.edu.imepac.clinica.screens;
 
+import AtendenteAddForm.SecretariaAddForm;
 import br.edu.imepac.clinica.screens.especialidades.EspecialidadeAddForm;
 import javax.swing.ButtonGroup;
 
@@ -202,6 +203,7 @@ public class MainMenu extends javax.swing.JFrame {
         // TODO add your handling code here:                                  
     String id = jTextField1.getText();
     String senha = new String(jPasswordField1.getPassword());
+    
 
     if (id.isEmpty() || senha.isEmpty()) {
         javax.swing.JOptionPane.showMessageDialog(this, "Por favor, preencha ID e senha!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
@@ -222,6 +224,24 @@ public class MainMenu extends javax.swing.JFrame {
     } else {
         javax.swing.JOptionPane.showMessageDialog(this, "Selecione SECRETÁRIA ou MÉDICO!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
     }
+    if (jCheckBox1.isSelected()) {
+    // Login secretária → abrir tela da secretária
+    SecretariaAddForm telaSecretaria = new SecretariaAddForm();
+    telaSecretaria.setVisible(true);
+    this.dispose(); // fecha tela de login
+
+} else if (jCheckBox2.isSelected()) {
+    // Login médico → abrir tela do médico
+    MainMenu_MEDICO telaMedico = new MainMenu_MEDICO();
+    telaMedico.setVisible(true);
+    this.dispose(); // fecha tela de login
+
+} else {
+    javax.swing.JOptionPane.showMessageDialog(this, 
+        "Selecione SECRETÁRIA ou MÉDICO!", 
+        "Aviso", 
+        javax.swing.JOptionPane.WARNING_MESSAGE);
+}
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed

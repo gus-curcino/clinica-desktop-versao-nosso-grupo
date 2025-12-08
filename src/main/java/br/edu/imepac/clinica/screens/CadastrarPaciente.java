@@ -75,6 +75,11 @@ public class CadastrarPaciente extends javax.swing.JFrame {
 
         jButton2.setText("Voltar");
         jButton2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -182,6 +187,13 @@ public class CadastrarPaciente extends javax.swing.JFrame {
     jTextField3.setText("");
     jComboBox1.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        TelaCadastros telasCadastro = new TelaCadastros();
+    telasCadastro.setVisible(true);   
+       this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
