@@ -22,7 +22,7 @@ import java.sql.SQLException;
  */
 public abstract class BaseDao {
     
-    private static final String URL = "jdbc:mysql://127.0.0.1:3306/?user=root";
+    private static final String URL = "jdbc:mysql://localhost:3306/?user=root";
     private static final String USUARIO = "root";
     private static final String SENHA = "8741";
     
