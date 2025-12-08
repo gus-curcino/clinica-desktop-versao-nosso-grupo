@@ -21,9 +21,9 @@ import java.sql.SQLException;
  */
 public abstract class BaseDao {
     
-    private static final String URL = "jdbc:mysql://localhost:3306/clinica";
-    private static final String USUARIO = "clinica";
-    private static final String SENHA = "Aa123456!";
+    private static final String URL = "jdbc:mysql://localhost:3306/?user=root";
+    private static final String USUARIO = "root";
+    private static final String SENHA = "8741";
     
     /**
      * Obtém uma conexão ativa com o banco de dados.
