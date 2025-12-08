@@ -42,7 +42,7 @@ public class SecretariaAddForm extends javax.swing.JFrame {
 
         jInternalFrame1.setVisible(true);
 
-        jLabel1.setText("Nome:  Igor Silva Franco");
+        jLabel1.setText("Nome: ");
 
         jLabel2.setText("Secretária");
 
@@ -95,7 +95,7 @@ public class SecretariaAddForm extends javax.swing.JFrame {
                         .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(406, Short.MAX_VALUE))
+                .addContainerGap(483, Short.MAX_VALUE))
         );
         jInternalFrame1Layout.setVerticalGroup(
             jInternalFrame1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
