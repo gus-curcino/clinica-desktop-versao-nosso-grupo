@@ -295,6 +295,8 @@ private void configurarTabela(JTable tabela) {
 
     // Adicionando dados de teste (opcional, pode remover depois)
     model.addRow(new Object[]{false, "Nome Completo do Paciente...", "Ver Detalhes"});
+    model.addRow(new Object[]{false, "João Silva", "Ver Detalhes"});
+    model.addRow(new Object[]{false, "Gustavo Resende", "Ver Detalhes"});
 
     // Aplica o modelo na tabela que foi passada por parâmetro
     tabela.setModel(model);
@@ -303,7 +305,6 @@ private void configurarTabela(JTable tabela) {
     tabela.getColumn("Ação").setCellRenderer(new ButtonRenderer());
     tabela.getColumn("Ação").setCellEditor(new ButtonEditor(new JCheckBox()));
 
-    // --- AQUI ESTÁ A MÁGICA DA LARGURA ---
     
     // Coluna 0 (Checkbox): Bem estreita
     tabela.getColumnModel().getColumn(0).setPreferredWidth(30);
