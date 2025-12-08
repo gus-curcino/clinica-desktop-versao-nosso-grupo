@@ -214,11 +214,11 @@
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jScrollPane8" max="32767" attributes="0"/>
-                                      <Component id="jScrollPane9" pref="138" max="32767" attributes="0"/>
+                                      <Component id="jScrollPane9" pref="146" max="32767" attributes="0"/>
                                       <Component id="jScrollPane10" max="32767" attributes="0"/>
                                       <Component id="jScrollPane11" max="32767" attributes="0"/>
-                                      <Component id="panel1" alignment="0" max="32767" attributes="0"/>
                                       <Component id="jScrollPane7" alignment="1" max="32767" attributes="0"/>
+                                      <Component id="jLabel4" alignment="1" max="32767" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane6" min="-2" pref="1026" max="-2" attributes="0"/>
@@ -236,7 +236,7 @@
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" attributes="0">
-                                  <Component id="panel1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" pref="39" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="jScrollPane7" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -245,11 +245,11 @@
                                   <Component id="jScrollPane9" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jScrollPane10" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                                   <Component id="jScrollPane11" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="jScrollPane6" pref="563" max="32767" attributes="0"/>
+                              <Component id="jScrollPane6" pref="567" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -281,11 +281,11 @@
                       <Properties>
                         <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                           <Table columnCount="5" rowCount="4">
-                            <Column editable="false" title="(nomes)" type="java.lang.Object"/>
+                            <Column editable="true" title="(nomes)" type="java.lang.Object"/>
                             <Column editable="true" title="XXX" type="java.lang.Object"/>
                             <Column editable="true" title="XXX" type="java.lang.Object"/>
-                            <Column editable="true" title="XXX" type="java.lang.Object"/>
-                            <Column editable="true" title="XXX" type="java.lang.Object"/>
+                            <Column editable="false" title="XXX" type="java.lang.Object"/>
+                            <Column editable="false" title="XXX" type="java.lang.Object"/>
                           </Table>
                         </Property>
                         <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
@@ -333,6 +333,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextPane" name="jTextPane2">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="CPF"/>
                       </Properties>
                     </Component>
@@ -347,6 +348,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextPane" name="jTextPane3">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="Convenio"/>
                       </Properties>
                     </Component>
@@ -361,6 +363,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextPane" name="jTextPane4">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="Qtd Consultas"/>
                       </Properties>
                     </Component>
@@ -375,6 +378,7 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextPane" name="jTextPane5">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="Observacoes"/>
                       </Properties>
                     </Component>
@@ -389,26 +393,17 @@
                   <SubComponents>
                     <Component class="javax.swing.JTextPane" name="jTextPane6">
                       <Properties>
+                        <Property name="editable" type="boolean" value="false"/>
                         <Property name="text" type="java.lang.String" value="Prontu&#xe1;rio"/>
                       </Properties>
                     </Component>
                   </SubComponents>
                 </Container>
-                <Container class="java.awt.Panel" name="panel1">
-
-                  <Layout>
-                    <DimensionLayout dim="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                    <DimensionLayout dim="1">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <EmptySpace min="0" pref="29" max="32767" attributes="0"/>
-                      </Group>
-                    </DimensionLayout>
-                  </Layout>
-                </Container>
+                <Component class="javax.swing.JLabel" name="jLabel4">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Imagem Cl&#xed;nica"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="jPanel2">
