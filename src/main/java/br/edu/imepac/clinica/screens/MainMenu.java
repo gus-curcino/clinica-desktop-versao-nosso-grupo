@@ -214,16 +214,11 @@ public class MainMenu extends javax.swing.JFrame {
     }
 
     if (jCheckBox1.isSelected()) {
-        // Aqui você valida o login da SECRETÁRIA
-        // Exemplo: abrir tela da secretária
+        // Validação login secretária
         javax.swing.JOptionPane.showMessageDialog(this, "Login como SECRETÁRIA autorizado!");
-        // new TelaSecretaria().setVisible(true);
-        // this.dispose();
     } else if (jCheckBox2.isSelected()) {
-        // Aqui você valida o login do MÉDICO
+        // Validação login Secretária
         javax.swing.JOptionPane.showMessageDialog(this, "Login como MÉDICO autorizado!");
-        // new TelaMedico().setVisible(true);
-        // this.dispose();
     } else {
         javax.swing.JOptionPane.showMessageDialog(this, "Selecione SECRETÁRIA ou MÉDICO!", "Aviso", javax.swing.JOptionPane.WARNING_MESSAGE);
     }
